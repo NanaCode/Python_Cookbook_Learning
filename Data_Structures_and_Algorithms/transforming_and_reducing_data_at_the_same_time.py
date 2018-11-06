@@ -12,13 +12,13 @@ print(s)
 # 55
 
 # Determine if any .py files exist in a directory
-# import os
-#
-# files = os.listdir('dirname')
-# if any(name.endswith('.py') for name in files):
-#     print('There be python file!')
-# else:
-#     print('Sorry, no python!')
+import os
+
+files = os.listdir('dirname')
+if any(name.endswith('.py') for name in files):
+    print('There be python file!')
+else:
+    print('Sorry, no python!')
 
 # Output a tuple as CSV
 s = ('ACME', 50, 123.5)
