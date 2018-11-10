@@ -25,6 +25,7 @@ text1 = '11/27/2012'
 text2 = 'Nov 27, 2012'
 
 import re
+
 # Simple matching: \d+ means match one or more digits
 if re.match(r'\d+/\d+/\d+', text1):
     print('yes')
@@ -38,7 +39,7 @@ else:
 # no
 
 # precompile the regular expression pattern into a pattern object if performing a lot of matching using the same pattern
-datapat= re.compile(r'\d+/\d+/\d+')
+datapat = re.compile(r'\d+/\d+/\d+')
 if datapat.match(text1):
     print('yes')
 else:
@@ -78,7 +79,7 @@ print(m.groups())
 month, day, year = m.groups()
 
 # Find all matches(notice splitting into tuples)
-print('*'*10)
+print('*' * 10)
 print(text3)
 print(datepat.findall(text3))
 for month, day, year in datepat.findall(text3):
@@ -93,3 +94,22 @@ for m in datepat.finditer(text3):
     print(m.groups())
 # ('11', '27', '2012')
 # ('3', '13', '2013')
+
+# match() method only checks the beginning of a string
+m = datepat.match('11/27/2012abcdef')
+print(m)
+print(m.group())
+# <_sre.SRE_Match object; span=(0, 10), match='11/27/2012'>
+# 11/27/2012
+
+# make sure the pattern includes the end-marker($) if you want an exact match
+datepat = re.compile(r'(\d+)/(\d+)/(\d+)$')
+print(datepat.match('11/27/2012abcdef'))
+print(datepat.match('11/27/2012'))
+# None
+# <_sre.SRE_Match object; span=(0, 10), match='11/27/2012'>
+
+# skip the compilation step and use module-level functions in the re module
+# if you're just doing a simple text matching/searching operation
+print(re.findall(r'(\d+)/(\d+)/(\d+)', text3))
+# [('11', '27', '2012'), ('3', '13', '2013')]
