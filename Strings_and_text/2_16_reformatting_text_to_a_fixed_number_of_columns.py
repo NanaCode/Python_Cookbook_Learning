@@ -36,6 +36,6 @@ print(textwrap.fill(s, 40, subsequent_indent='     '))
 import os
 print(os.get_terminal_size().columns)
 # Traceback (most recent call last):
-#   File "C:/Users/Administrator/Desktop/Python cookbook学习/Python_Cookbook_Learning/Strings_and_text/reformatting_text_to_a_fixed_number_of_columns.py", line 37, in <module>
+#   File "C:/Users/Administrator/Desktop/Python cookbook学习/Python_Cookbook_Learning/Strings_and_text/2_16_reformatting_text_to_a_fixed_number_of_columns.py", line 37, in <module>
 #     print(os.get_terminal_size().columns)
 # OSError: [WinError 6] 句柄无效。
