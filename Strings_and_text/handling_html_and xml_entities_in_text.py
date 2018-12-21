@@ -12,3 +12,11 @@ print(html.escape(s))
 print(html.escape(s, quote=False))
 # Elements are written as "&lt;tag&gt;text&lt;/tag&gt;".
 
+# Use the errors = 'xmlcharrefreplace' argument to various I/O-related functions
+# to emit text as ASCII and embed character code entities
+s = 'Spicy Jalapeño'
+print(s.encode('ascii', errors='xmlcharrefreplace'))
+# b'Spicy Jalape&#241;o'
+
+
+
