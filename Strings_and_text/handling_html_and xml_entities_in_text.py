@@ -18,5 +18,15 @@ s = 'Spicy Jalapeño'
 print(s.encode('ascii', errors='xmlcharrefreplace'))
 # b'Spicy Jalape&#241;o'
 
+# Replace manually if receiving bare text with some entities
+s = 'Spicy &quot;Jalape&#241;o&quot.'
+from html.parser import HTMLParser
+p = HTMLParser()
+print(p.unescape(s))
+# Spicy "Jalapeño".
 
+t = 'The promt is &gt;&gt;&gt;'
+from xml.sax.saxutils import unescape
+print(unescape(t))
+# The promt is >>>
 
